@@ -9,24 +9,14 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  var timeBlockEl = $('#time-block');
+  var timeBlockEl = $('.time-block');
 
   $('.saveBtn').on('click', function(){
-    var timeBlockEl = $(this).closest('#time-block'); // 'this' refers to any DOM element that triggered its event. In this case it is the saveBtn or button.
+    var timeBlockEl = $(this).closest('.time-block'); // 'this' refers to any DOM element that triggered its event. In this case it is the saveBtn or button.
     var timeBlockElId = timeBlockEl.attr('id');
     var description = timeBlockEl.find('.description').val("");
 
     localStorage.setItem(timeBlockElId,description);
-
-
-
-
-
-
-
-
-
-
   });
 
 
