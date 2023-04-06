@@ -17,7 +17,7 @@ $(function () {
   $('.saveBtn').on('click', function(){
     var timeBlockEl = $(this).closest('.time-block'); // 'this' refers to any DOM element that triggered its event. In this case it is the saveBtn or button.
     var timeBlockElId = timeBlockEl.attr('id');
-    var description = timeBlockEl.find('.description').val("");
+    var description = timeBlockEl.find('.description').val();
 
     localStorage.setItem(timeBlockElId,description);
   });
@@ -34,7 +34,7 @@ $(function () {
 
     var timeBlockEl = $(this);
     var timeBlockElId = timeBlockEl.attr("id");
-    var hour = dayjs(timeBlockElId, "hA");
+    var hour = dayjs(timeBlockElId, "H"); // this 'H' represents the 24 hour format of dayjs. if we wanted to use the 12 hour format the syntax would be 'hA'
 
     if (hour.isBefore(today, "hour")) {
       timeBlockEl.addClass("past");
@@ -69,3 +69,4 @@ $(function () {
   var currentDate = $('#currentDay');
   currentDate.text(today.format("dddd MMMM D, YYYY. h:mm:ss:a"));
 });
+
